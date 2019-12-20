@@ -27,9 +27,13 @@ function createWindow() {
         'movtile',
         function(request, callback) {
             console.log('request: ', request);
-            var url = request.url.substr(10);
-            // const fn = 'D:\\apps\\PotPlayer\\PotPlayerMini.exe';
-            const fn = '/usr/local/ffmpeg/4.2.1/bin/ffplay';
+            let url = request.url.substr(10);
+            let fn;
+            if (process.platform === 'darwin') {
+                fn = '/usr/local/ffmpeg/4.2.1/bin/ffplay';
+            } else {
+                fn = 'D:\\apps\\PotPlayer\\PotPlayerMini.exe';
+            }
             cp.spawn(fn, [url]);
         },
         function(error) {

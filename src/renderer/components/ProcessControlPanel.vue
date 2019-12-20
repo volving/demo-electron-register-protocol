@@ -8,6 +8,7 @@
             </div>
             <div class="right-side">
                 <a href="movtile:///Users/volving/Downloads/raw/converted/b033_h264_1920x1080.mp4">b033_h264_1920x1080.mp4</a>
+                <a href="movtile://D:\\Downloads\\raw\\b033_h264_1920x1080.mp4">b033_h264_1920x1080.mp4</a>
                 <!-- <button class="btn startProc" @click="startProc()">Start Process</button>
 
                 <button class="btn randomWord" @click="getRandomWord()">Random Word</button>
