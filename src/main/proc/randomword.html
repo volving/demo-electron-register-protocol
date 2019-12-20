@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RandomWord</title>
+</head>
+
+<body>
+    <h1>The quick fox jumps over the lazy dog!!!</h1>
+    <script>
+        const { ipcRenderer } = require('electron');
+
+        let words = 'whenever sang my songs on the stage own eyes me'.split(' ');
+        function getRandomWord() {
+            let index = Math.floor(Math.random() * 10);
+            let value = words[index] || 'default';
+            return value;
+        }
+
+        ipcRenderer.on('RandomWord:req', (event, args) => {
+            let {uuid} = JSON.parse(args);
+            let value = getRandomWord();
+            let args2 = JSON.stringify({
+                uuid,
+                value
+            })
+            event.sender.send('RandomWord:res', args2);
+        });
+    </script>
+</body>
+
+</html>
